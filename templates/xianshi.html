@@ -1,0 +1,54 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/index_upload.css">
+<link rel="stylesheet" href="/static/css/lightbox.css" media="screen"/>
+<script src="http://libs.useso.com/js/jquery/1.9.0/jquery.min.js"></script>
+<script src="js/lightbox-2.6.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no" />
+<title>厨房管理</title>
+</head>
+<body>
+    <DIV class="font_head">电子点餐系统</DIV>
+    <DIV class="font_subhead">厨房管理</DIV>
+    <center>
+    <table border="1 #5E5E5E" class="div_none_decoration font_note_details_dark" style="text-align:center;">
+         <tr style="font-weight:blod;">
+             <td>菜品</td>
+             <td>房间号</td>
+             <td>选择</td>
+         </tr>
+        {% for dish in customer %}
+            <form action="../show/" method="post" enctype="multipart/form-data">
+         <tr>
+             <td>
+                  <input type="hidden" name="name" value={{ dish.customer_dishs }}>{{ dish.customer_dishs }}
+             </td>
+             <td>
+                  <input type="hidden" name="name" value={{ dish.customer_dishs }}>{{ dish.customer_room }}
+                 <input type="hidden" name="id" value={{ dish.id }}>
+             </td>
+             <td><button  style="float: right;background: #5EA51B; width: 100px; height: 30px;">制作完成</button></td>
+
+         </tr>
+            </form>
+        {% endfor %}
+    </table>
+
+
+{#    {% for dish in customer %}#}
+{#        <form acction="../customer/" method="post" enctype="multipart/form-data">#}
+{#        <li style="height: 40px">#}
+{#        <input type="hidden" name="name" value={{ dish.customer_dishs }}>{{ dish.customer_dishs }}#}
+{#        #}
+{#        <button  style="float: right;background: #5EA51B; width: 100px; height: 30px;">制作完成</button>#}
+{#        </li>#}
+{#        </form>#}
+{#    {% endfor %}#}
+    <br><br>
+    <div id="select" style="display:none;"></div>
+    <form><input class="div_button_large" type="submit" value="退出" name="back"/></form>
+    </center>
+</body>
+</html>
